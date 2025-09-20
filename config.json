@@ -1,0 +1,32 @@
+{
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "log_security.log"
+  },
+  "ml_model": {
+    "auto_train": true,
+    "model_path": "ml_detector_model.pkl"
+  },
+  "responder": {
+    "auto_sanitize": true,
+    "log_alerts": true,
+    "alert_file": "security_alerts.log",
+    "response_rules": {
+      "critical": "block",
+      "high": "sanitize",
+      "medium": "log",
+      "low": "log"
+    }
+  },
+  "api": {
+    "host": "127.0.0.1",
+    "port": 5000,
+    "debug": false
+  },
+  "detection": {
+    "use_ml": true,
+    "ml_threshold": 0.5,
+    "rule_confidence_boost": 0.1
+  }
+}
